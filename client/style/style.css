@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'rubikregular';
+    src: url('rubik-regular-webfont.woff2') format('woff2'),
+         url('rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.TopNav {
+  width: 100%;
+  height: 50px;
+  background-color: #282653;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.NavItem {
+  box-sizing: border-box;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100px;
+  color: #95A2AA;
+  font-size: .75rem;
+  font-weight: 400;
+  font-family: rubikregular;
+  cursor: pointer;
+  transition: color 0.5s;
+  transition-timing-function: ease;
+}
+
+.NavHighlight {
+  background-color: #7F56C5;
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  transition: left 0.4s;
+  transition-timing-function: ease;
+}
