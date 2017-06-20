@@ -1,5 +1,6 @@
 import React from 'react'
-require('../style/style.css')
+require('../style/navStyle.css')
+
 export default class TopNav extends React.Component {
   constructor (props) {
     super(props)

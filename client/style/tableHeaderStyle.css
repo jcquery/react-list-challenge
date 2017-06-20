@@ -1,0 +1,89 @@
+.HeaderTitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7F56C5;
+  font-family: rubikregular;
+  display: inline-block;
+  margin: 0;
+}
+
+.HeaderSection {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.ListHeader {
+  padding-top: 100px;
+  padding-left: 5%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.PageLoc {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #7F56C5;
+}
+
+.PageLoc > .Bold {
+  font-weight: 700;
+}
+
+.PageNav {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1DAFE9;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Pipe {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #BCBEC0;
+  font-family: rubikregular;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.SortBy {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #7F56C5;
+  font-family: rubikregular;
+}
+
+.SortBy::after {
+  display: inline-block;
+  padding-top: 2px;
+  padding-left: 5px;
+  content: '▼';
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #1DAFE9;
+  font-family: rubikregular;
+  pointer-events: none;
+  margin-left: -15px;
+}
+
+select {
+  -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+  -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+  border: 0;  /*REMOVES BORDER*/
+  background-color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1DAFE9;
+  font-family: rubikregular;
+  margin-left: 4px;
+}
+
+select.Sort {
+  width: 75px;
+}
+
+select.Count {
+  width: 35px;
+}
