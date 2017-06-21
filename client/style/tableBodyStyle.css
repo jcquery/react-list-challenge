@@ -1,0 +1,73 @@
+.ListHeader {
+  height: 32px;
+  background: #CACBCE;
+  border-radius: 3px 3px 0 0;
+  font-size: 0.75rem;
+  color: #282653;
+  font-family: rubikregular;
+  font-weight: 700;
+  text-align: left;
+}
+
+.ListHeader > .First {
+  border-radius: 3px 0 0 0;
+  width: 12%;
+}
+
+.ListHeader > .Last {
+  width: 12.5%;
+}
+
+.ListHeader > .Country {
+  width: 10%;
+}
+
+.ListHeader > .Address {
+  width: 17%;
+}
+
+.ListHeader > .City {
+  width: 10%;
+}
+
+.ListHeader > .State {
+  width: 7%;
+}
+
+.ListHeader > .Zip {
+  width: 7%;
+}
+
+.ListHeader > .Phone{
+  border-radius: 0 3px 0 0;
+  width: 12%;
+}
+
+.ListItem {
+  height: 32px;
+  font-size: .75rem;
+  font-weight: 400;
+  color: #808285;
+  font-family: rubikregular;
+}
+
+.ListItem.Even {
+  background: #F7F7F7;
+}
+
+.ListItem.Odd {
+  background: #F0F0F0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding-left: 7px;
+}
+
+td {
+  padding-left: 7px;
+}

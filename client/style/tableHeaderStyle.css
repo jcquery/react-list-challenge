@@ -2,7 +2,6 @@
   font-size: 1rem;
   font-weight: 400;
   color: #7F56C5;
-  font-family: rubikregular;
   display: inline-block;
   margin: 0;
 }
@@ -13,18 +12,18 @@
   flex-direction: row;
 }
 
-.ListHeader {
-  padding-top: 100px;
-  padding-left: 5%;
-  width: 80%;
+.ListHead {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  font-family: rubikregular;
 }
 
 .PageLoc {
   font-size: 0.875rem;
   font-weight: 400;
   color: #7F56C5;
+  margin-left: 25px;
 }
 
 .PageLoc > .Bold {

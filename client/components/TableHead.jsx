@@ -1,9 +1,9 @@
 import React from 'react'
 require('../style/tableHeaderStyle.css')
 
-export default class TableHeader extends React.Component {
+export default class TableHead extends React.Component {
   render () {
-    return <div className='ListHeader'>
+    return <div className='ListHead'>
       <div className='HeaderSection'>
         <h2 className='HeaderTitle'>List of Awesome</h2>
         <span className='Pipe'> | </span>

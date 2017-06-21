@@ -27,6 +27,10 @@
   transition-timing-function: ease;
 }
 
+.NavItem:hover{
+  color: white;
+}
+
 .NavHighlight {
   background-color: #7F56C5;
   height: 100%;

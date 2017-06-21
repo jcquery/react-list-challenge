@@ -1,8 +1,94 @@
 import React from 'react'
-import TableHeader from './TableHeader.jsx'
-
+import TableHead from './TableHead.jsx'
+import TableBody from './TableBody.jsx'
+require('../style/tableStyle.css')
+const testArr = [
+  { first: 'John0',
+    last: 'Johnson0',
+    country: 'USA0',
+    address: '123 road0',
+    city: 'Place0',
+    state: 'QW0',
+    zip: '12340',
+    phone: '12321340' },
+  { first: 'John1',
+    last: 'Johnson1',
+    country: 'USA1',
+    address: '123 road1',
+    city: 'Place1',
+    state: 'QW1',
+    zip: '12341',
+    phone: '12321341' },
+  { first: 'John2',
+    last: 'Johnson2',
+    country: 'USA2',
+    address: '123 road2',
+    city: 'Place2',
+    state: 'QW2',
+    zip: '12342',
+    phone: '12321342' },
+  { first: 'John3',
+    last: 'Johnson3',
+    country: 'USA3',
+    address: '123 road3',
+    city: 'Place3',
+    state: 'QW3',
+    zip: '12343',
+    phone: '12321343' },
+  { first: 'John4',
+    last: 'Johnson4',
+    country: 'USA4',
+    address: '123 road4',
+    city: 'Place4',
+    state: 'QW4',
+    zip: '12344',
+    phone: '12321344' },
+  { first: 'John5',
+    last: 'Johnson5',
+    country: 'USA5',
+    address: '123 road5',
+    city: 'Place5',
+    state: 'QW5',
+    zip: '12345',
+    phone: '12321345' },
+  { first: 'John6',
+    last: 'Johnson6',
+    country: 'USA6',
+    address: '123 road6',
+    city: 'Place6',
+    state: 'QW6',
+    zip: '12346',
+    phone: '12321346' },
+  { first: 'John7',
+    last: 'Johnson7',
+    country: 'USA7',
+    address: '123 road7',
+    city: 'Place7',
+    state: 'QW7',
+    zip: '12347',
+    phone: '12321347' },
+  { first: 'John8',
+    last: 'Johnson8',
+    country: 'USA8',
+    address: '123 road8',
+    city: 'Place8',
+    state: 'QW8',
+    zip: '12348',
+    phone: '12321348' },
+  { first: 'John9',
+    last: 'Johnson9',
+    country: 'USA9',
+    address: '123 road9',
+    city: 'Place9',
+    state: 'QW9',
+    zip: '12349',
+    phone: '12321349' }
+]
 export default class Table extends React.Component {
   render () {
-    return <TableHeader />
+    return <div className='TableContainer'>
+      <TableHead />
+      <TableBody rows={testArr} />
+    </div>
   }
 }
