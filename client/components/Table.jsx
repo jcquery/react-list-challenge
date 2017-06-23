@@ -72,7 +72,7 @@ export default class Table extends React.Component {
 
   render () {
     this.worker.onmessage = (m) => { this.handleMessage(m.data) }
-    return <div className='TableContainer'>
+    return <div className={this.state.loading ? 'TableContainer Wait' : 'TableContainer'}>
       <TableHead
         sort={this.state.sort}
         count={this.state.count}
