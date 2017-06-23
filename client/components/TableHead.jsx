@@ -1,5 +1,5 @@
 import React from 'react'
-require('../style/tableHeaderStyle.css')
+require('../style/tableHeadStyle.css')
 
 export default class TableHead extends React.Component {
   handleCountChange (e) {

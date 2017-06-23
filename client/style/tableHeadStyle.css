@@ -69,9 +69,9 @@
 }
 
 select {
-  -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
-  -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
-  border: 0;  /*REMOVES BORDER*/
+  -webkit-appearance: none;  
+  -moz-appearance: none;  
+  border: 0;
   background-color: white;
   font-size: 0.75rem;
   font-weight: 600;
@@ -82,9 +82,9 @@ select {
 }
 
 select.Sort {
-  width: 75px;
+  width: 85px;
 }
 
 select.Count {
-  width: 35px;
+  width: 39px;
 }
