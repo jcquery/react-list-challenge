@@ -54,13 +54,15 @@ export default class Table extends React.Component {
     })
   }
   updateSort (val) {
-    this.setState({ sort: val }, () => {
-      this.worker.postMessage(['sort', {
-        sort: this.state.sort,
-        count: this.state.count,
-        page: this.state.page
-      }])
-    })
+    if (val !== this.state.sort) {
+      this.setState({ sort: val }, () => {
+        this.worker.postMessage(['sort', {
+          sort: this.state.sort,
+          count: this.state.count,
+          page: this.state.page
+        }])
+      })
+    }
   }
 
   render () {

@@ -6,7 +6,10 @@ export default class TableHead extends React.Component {
     this.props.updateCount(e.target.value)
   }
   handlePaginate (update) {
-    if (this.props.page + update > 0) {
+    if (
+      this.props.page + update > 0 &&
+      !(this.props.size - (this.props.page) * this.props.count < 0 && Math.sign(update) === 1)
+    ) {
       this.props.updatePage(update)
     }
   }
@@ -52,7 +55,9 @@ export default class TableHead extends React.Component {
             <option value='100'>100</option>
           </select>
         </label>
-        <span className='PageLoc'><a className='Bold'>{(this.props.page - 1) * this.props.count + 1} - {(this.props.page) * this.props.count}</a> of <a className='Bold'>{this.props.size}</a></span>
+        <span className='PageLoc'>
+          <a className='Bold'>{(this.props.page - 1) * this.props.count + 1} - {this.props.size - this.props.page * this.props.count >= 0 ? this.props.page * this.props.count : this.props.size}</a> of <a className='Bold'>{this.props.size}</a>
+        </span>
         <a className='PageNav' onClick={this.handlePaginate.bind(this, -1)}>{'<'}</a>
         <a className='PageNav' onClick={this.handlePaginate.bind(this, 1)}>{'>'}</a>
       </div>
