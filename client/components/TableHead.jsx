@@ -58,8 +58,8 @@ export default class TableHead extends React.Component {
         <span className='PageLoc'>
           <a className='Bold'>{(this.props.page - 1) * this.props.count + 1} - {this.props.size - this.props.page * this.props.count >= 0 ? this.props.page * this.props.count : this.props.size}</a> of <a className='Bold'>{this.props.size}</a>
         </span>
-        <a className='PageNav' onClick={this.handlePaginate.bind(this, -1)}>{'<'}</a>
-        <a className='PageNav' onClick={this.handlePaginate.bind(this, 1)}>{'>'}</a>
+        <span className='PageNav' onClick={this.handlePaginate.bind(this, -1)}>{'<'}</span>
+        <span className='PageNav' onClick={this.handlePaginate.bind(this, 1)}>{'>'}</span>
       </div>
     </div>
   }

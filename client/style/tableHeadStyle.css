@@ -4,19 +4,21 @@
   color: #7F56C5;
   display: inline-block;
   margin: 0;
+  font-family: 'Trebuchet MS Header', 'Lucida Grande', 'Verdana Header';
 }
 
 .HeaderSection {
   display: flex;
   align-items: center;
   flex-direction: row;
+  height: 100%;
 }
 
 .ListHead {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: rubikregular;
+  margin-bottom: 5px;
 }
 
 .PageLoc {
@@ -24,6 +26,7 @@
   font-weight: 400;
   color: #7F56C5;
   margin-left: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans', 'Verdana';
 }
 
 .PageLoc > .Bold {
@@ -31,19 +34,22 @@
 }
 
 .PageNav {
-  font-size: 0.95rem;
-  font-weight: 700;
+  margin-bottom: 3px;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  font-weight: 400;
   color: #1DAFE9;
   margin-left: 5px;
   margin-right: 5px;
   cursor: pointer;
+  font-family: 'Verdana', 'Lucida Sans', 'Trebuchet MS';
 }
 
 .Pipe {
   font-size: 1rem;
   font-weight: 300;
   color: #BCBEC0;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS Header', 'Lucida Grande', 'Verdana Header';
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -52,7 +58,7 @@
   font-size: 0.75rem;
   font-weight: 400;
   color: #7F56C5;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS Header', 'Lucida Grande', 'Verdana Header';
 }
 
 .SortBy::after {
@@ -63,7 +69,7 @@
   font-size: 0.5rem;
   font-weight: 600;
   color: #1DAFE9;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS', 'Lucida Sans', 'Verdana';
   pointer-events: none;
   margin-left: -15px;
 }
@@ -76,13 +82,13 @@ select {
   font-size: 0.75rem;
   font-weight: 600;
   color: #1DAFE9;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS', 'Lucida Sans', 'Verdana';
   margin-left: 4px;
   cursor: pointer;
 }
 
 select.Sort {
-  width: 85px;
+  width: 82px;
 }
 
 select.Count {

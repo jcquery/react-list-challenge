@@ -3,7 +3,7 @@
   background: #CACBCE;
   font-size: 0.75rem;
   color: #282653;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS Header', 'Lucida Grande', 'Verdana Header';
   font-weight: 700;
   text-align: left;
   cursor: pointer;
@@ -11,23 +11,23 @@
 
 .ListHeader.First {
   border-radius: 3px 0 0 0;
-  width: 12%;
+  width: 11%;
 }
 
 .ListHeader.Last {
-  width: 12.5%;
+  width: 11%;
 }
 
 .ListHeader.Country {
-  width: 10%;
+  width: 16%;
 }
 
 .ListHeader.Address {
-  width: 17%;
+  width: 21%;
 }
 
 .ListHeader.City {
-  width: 10%;
+  width: 11%;
 }
 
 .ListHeader.State {
@@ -35,7 +35,7 @@
 }
 
 .ListHeader.Zip {
-  width: 7%;
+  width: 10%;
 }
 
 .ListHeader.Phone {
@@ -56,7 +56,7 @@
   font-size: .75rem;
   font-weight: 400;
   color: #808285;
-  font-family: rubikregular;
+  font-family: 'Trebuchet MS', 'Lucida Sans', 'Verdana';
 }
 
 .ListItem.Even {
