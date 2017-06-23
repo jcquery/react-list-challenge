@@ -2,7 +2,7 @@ import React from 'react'
 import TableHead from './TableHead.jsx'
 import TableBody from './TableBody.jsx'
 require('../style/tableStyle.css')
-const ListWorker = require('worker-loader!../worker/ListWorker.js')
+const ListWorker = require('../worker/ListWorker.js')
 
 export default class Table extends React.Component {
   constructor () {
