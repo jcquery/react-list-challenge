@@ -36,6 +36,7 @@
   color: #1DAFE9;
   margin-left: 5px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .Pipe {
@@ -77,6 +78,7 @@ select {
   color: #1DAFE9;
   font-family: rubikregular;
   margin-left: 4px;
+  cursor: pointer;
 }
 
 select.Sort {

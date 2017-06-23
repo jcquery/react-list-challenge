@@ -2,37 +2,59 @@ import React from 'react'
 require('../style/tableHeaderStyle.css')
 
 export default class TableHead extends React.Component {
+  handleCountChange (e) {
+    this.props.updateCount(e.target.value)
+  }
+  handlePaginate (update) {
+    if (this.props.page + update > 0) {
+      this.props.updatePage(update)
+    }
+  }
+  handleSort (e) {
+    this.props.updateSort(e.target.value)
+  }
+
   render () {
     return <div className='ListHead'>
       <div className='HeaderSection'>
         <h2 className='HeaderTitle'>List of Awesome</h2>
         <span className='Pipe'> | </span>
         <label className='SortBy'>Sort By:
-          <select name='sort' className='Sort'>
-            <option>First Name</option>
-            <option>Last Name</option>
-            <option>Country</option>
-            <option>Address</option>
-            <option>City</option>
-            <option>State</option>
-            <option>Zip</option>
-            <option>Phone</option>
+          <select
+            name='sort'
+            className='Sort'
+            onChange={this.handleSort.bind(this)}
+            value={this.props.sort}
+          >
+            <option value='first'>First Name</option>
+            <option value='last'>Last Name</option>
+            <option value='country'>Country</option>
+            <option value='address'>Address</option>
+            <option value='city'>City</option>
+            <option value='state'>State</option>
+            <option value='zip'>Zip</option>
+            <option value='phone'>Phone</option>
           </select>
         </label>
       </div>
       <div className='HeaderSection'>
         <label className='SortBy'>items per page:
-          <select name='count' className='Count'>
-            <option>5</option>
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-            <option>100</option>
+          <select
+            name='count'
+            className='Count'
+            value={this.props.count}
+            onChange={this.handleCountChange.bind(this)}
+          >
+            <option value='5'>5</option>
+            <option value='10'>10</option>
+            <option value='25'>25</option>
+            <option value='50'>50</option>
+            <option value='100'>100</option>
           </select>
         </label>
-        <span className='PageLoc'><a className='Bold'>1 - 10</a> of <a className='Bold'>30</a></span>
-        <a className='PageNav'>{'<'}</a>
-        <a className='PageNav'>{'>'}</a>
+        <span className='PageLoc'><a className='Bold'>{(this.props.page - 1) * this.props.count + 1} - {(this.props.page) * this.props.count}</a> of <a className='Bold'>{this.props.size}</a></span>
+        <a className='PageNav' onClick={this.handlePaginate.bind(this, -1)}>{'<'}</a>
+        <a className='PageNav' onClick={this.handlePaginate.bind(this, 1)}>{'>'}</a>
       </div>
     </div>
   }

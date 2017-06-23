@@ -2,93 +2,86 @@ import React from 'react'
 import TableHead from './TableHead.jsx'
 import TableBody from './TableBody.jsx'
 require('../style/tableStyle.css')
-const testArr = [
-  { first: 'John0',
-    last: 'Johnson0',
-    country: 'USA0',
-    address: '123 road0',
-    city: 'Place0',
-    state: 'QW0',
-    zip: '12340',
-    phone: '12321340' },
-  { first: 'John1',
-    last: 'Johnson1',
-    country: 'USA1',
-    address: '123 road1',
-    city: 'Place1',
-    state: 'QW1',
-    zip: '12341',
-    phone: '12321341' },
-  { first: 'John2',
-    last: 'Johnson2',
-    country: 'USA2',
-    address: '123 road2',
-    city: 'Place2',
-    state: 'QW2',
-    zip: '12342',
-    phone: '12321342' },
-  { first: 'John3',
-    last: 'Johnson3',
-    country: 'USA3',
-    address: '123 road3',
-    city: 'Place3',
-    state: 'QW3',
-    zip: '12343',
-    phone: '12321343' },
-  { first: 'John4',
-    last: 'Johnson4',
-    country: 'USA4',
-    address: '123 road4',
-    city: 'Place4',
-    state: 'QW4',
-    zip: '12344',
-    phone: '12321344' },
-  { first: 'John5',
-    last: 'Johnson5',
-    country: 'USA5',
-    address: '123 road5',
-    city: 'Place5',
-    state: 'QW5',
-    zip: '12345',
-    phone: '12321345' },
-  { first: 'John6',
-    last: 'Johnson6',
-    country: 'USA6',
-    address: '123 road6',
-    city: 'Place6',
-    state: 'QW6',
-    zip: '12346',
-    phone: '12321346' },
-  { first: 'John7',
-    last: 'Johnson7',
-    country: 'USA7',
-    address: '123 road7',
-    city: 'Place7',
-    state: 'QW7',
-    zip: '12347',
-    phone: '12321347' },
-  { first: 'John8',
-    last: 'Johnson8',
-    country: 'USA8',
-    address: '123 road8',
-    city: 'Place8',
-    state: 'QW8',
-    zip: '12348',
-    phone: '12321348' },
-  { first: 'John9',
-    last: 'Johnson9',
-    country: 'USA9',
-    address: '123 road9',
-    city: 'Place9',
-    state: 'QW9',
-    zip: '12349',
-    phone: '12321349' }
-]
+const ListWorker = require('worker-loader!../worker/ListWorker.js')
+
 export default class Table extends React.Component {
+  constructor () {
+    super()
+
+    this.state = {
+      rows: [],
+      sort: 'first',
+      count: 10,
+      page: 1,
+      size: 10
+    }
+  }
+
+  componentWillMount () {
+    this.worker = new ListWorker()
+    this.worker.postMessage(['init'])
+  }
+  handleMessage (data) {
+    switch (data[0]) {
+      case 'init':
+        this.setState({ rows: data[1], size: data[2] })
+        break
+      case 'updated':
+        this.setState({ rows: data[1] })
+        break
+      case 'error': {
+        console.log(data[1])
+        break
+      }
+    }
+  }
+  updateCount (val) {
+    this.setState({ count: val }, () => {
+      this.worker.postMessage(['update', {
+        count: this.state.count,
+        page: this.state.page
+      }])
+    })
+  }
+  updatePage (val) {
+    const newPage = this.state.page + val
+
+    this.setState({ page: newPage }, () => {
+      this.worker.postMessage(['update', {
+        count: this.state.count,
+        page: this.state.page
+      }])
+    })
+  }
+  updateSort (val) {
+    this.setState({ sort: val }, () => {
+      this.worker.postMessage(['sort', {
+        sort: this.state.sort,
+        count: this.state.count,
+        page: this.state.page
+      }])
+    })
+  }
+
   render () {
+    this.worker.onmessage = (m) => { this.handleMessage(m.data) }
     return <div className='TableContainer'>
-      <TableHead />
-      <TableBody rows={testArr} />
+      <TableHead
+        sort={this.state.sort}
+        count={this.state.count}
+        page={this.state.page}
+        size={this.state.size}
+        updateCount={this.updateCount.bind(this)}
+        updatePage={this.updatePage.bind(this)}
+        updateSort={this.updateSort.bind(this)}
+      />
+      <TableBody
+        rows={this.state.rows}
+        sort={this.state.sort}
+        count={this.state.count}
+        page={this.state.page}
+        updateSort={this.updateSort.bind(this)}
+      />
     </div>
   }
 }

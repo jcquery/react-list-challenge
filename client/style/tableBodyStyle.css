@@ -1,46 +1,54 @@
 .ListHeader {
   height: 32px;
   background: #CACBCE;
-  border-radius: 3px 3px 0 0;
   font-size: 0.75rem;
   color: #282653;
   font-family: rubikregular;
   font-weight: 700;
   text-align: left;
+  cursor: pointer;
 }
 
-.ListHeader > .First {
+.ListHeader.First {
   border-radius: 3px 0 0 0;
   width: 12%;
 }
 
-.ListHeader > .Last {
+.ListHeader.Last {
   width: 12.5%;
 }
 
-.ListHeader > .Country {
+.ListHeader.Country {
   width: 10%;
 }
 
-.ListHeader > .Address {
+.ListHeader.Address {
   width: 17%;
 }
 
-.ListHeader > .City {
+.ListHeader.City {
   width: 10%;
 }
 
-.ListHeader > .State {
+.ListHeader.State {
   width: 7%;
 }
 
-.ListHeader > .Zip {
+.ListHeader.Zip {
   width: 7%;
 }
 
-.ListHeader > .Phone{
+.ListHeader.Phone {
   border-radius: 0 3px 0 0;
   width: 12%;
+}
+
+.ListHeader.Selected {
+  color: #7F56C5;
+}
+
+.ListHeader:hover {
+  color: #7F56C5;
 }
 
 .ListItem {
