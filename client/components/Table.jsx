@@ -13,21 +13,22 @@ export default class Table extends React.Component {
       sort: 'first',
       count: 10,
       page: 1,
-      size: 10
+      size: 0,
+      loading: true
     }
   }
 
   componentWillMount () {
     this.worker = new ListWorker()
-    this.worker.postMessage(['init'])
+    this.worker.postMessage(['init', this.state.count])
   }
   handleMessage (data) {
     switch (data[0]) {
       case 'init':
-        this.setState({ rows: data[1], size: data[2] })
+        this.setState({ rows: data[1], size: data[2], loading: false })
         break
       case 'updated':
-        this.setState({ rows: data[1] })
+        this.setState({ rows: data[1], loading: false })
         break
       case 'error': {
         console.log(data[1])
@@ -36,26 +37,30 @@ export default class Table extends React.Component {
     }
   }
   updateCount (val) {
-    this.setState({ count: val }, () => {
-      this.worker.postMessage(['update', {
-        count: this.state.count,
-        page: this.state.page
-      }])
-    })
+    if (!this.state.loading) {
+      this.setState({ count: val, page: 1 }, () => {
+        this.worker.postMessage(['update', {
+          count: this.state.count,
+          page: this.state.page
+        }])
+      })
+    }
   }
   updatePage (val) {
-    const newPage = this.state.page + val
+    if (!this.state.loading) {
+      const newPage = this.state.page + val
 
-    this.setState({ page: newPage }, () => {
-      this.worker.postMessage(['update', {
-        count: this.state.count,
-        page: this.state.page
-      }])
-    })
+      this.setState({ page: newPage }, () => {
+        this.worker.postMessage(['update', {
+          count: this.state.count,
+          page: this.state.page
+        }])
+      })
+    }
   }
   updateSort (val) {
-    if (val !== this.state.sort) {
-      this.setState({ sort: val }, () => {
+    if (val !== this.state.sort && !this.state.loading) {
+      this.setState({ sort: val, loading: true, page: 1 }, () => {
         this.worker.postMessage(['sort', {
           sort: this.state.sort,
           count: this.state.count,
@@ -84,6 +89,7 @@ export default class Table extends React.Component {
         page={this.state.page}
         updateSort={this.updateSort.bind(this)}
       />
+      <div className='Loader' style={this.state.loading ? { visibility: 'visible' } : { visibility: 'hidden', animation: 'none' }} />
     </div>
   }
 }
