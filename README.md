@@ -1,5 +1,7 @@
 # react-list-challenge
-A React component made to handle a silly number of records at once.
+<img src="https://github.com/jcquery/react-list-challenge/raw/master/UI_UX_Specs_01.png" height="400">
+
+A React component made to handle a silly number of records at once based off of the above image.
 
 The goal was to build a component that could handle 100,000 records at once (recieved, say, from an AJAX request) client-side and allow sorting, pagination, and adjusting of the page size. Shoving a giant array in state seemed like a terrible idea, so I made a simple web worker to act as my model. 
 
