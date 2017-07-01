@@ -30,6 +30,7 @@ const sortArr = function (key, arr, callback) {
   callback(arr.sort((a, b) => {
     const aProp = a[key].toUpperCase()
     const bProp = b[key].toUpperCase()
+
     if (aProp < bProp) {
       return -1
     }
